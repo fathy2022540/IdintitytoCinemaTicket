@@ -1,0 +1,83 @@
+﻿@model IdintitytoCinemaTicket.Models.Cinema
+
+@{
+    ViewData["Title"] = "Edit Cinema";
+}
+
+<div class="container my-5">
+    <div class="card shadow-lg border-0 rounded-4 mx-auto" style="max-width: 750px;">
+        <div class="card-header bg-primary text-white text-center rounded-top-4 py-3">
+            <h2 class="mb-0">
+                <i class="bi bi-pencil-square me-2"></i> Edit Cinema
+            </h2>
+        </div>
+
+        <div class="card-body bg-light p-4">
+            <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="Id" />
+
+                <!-- Cinema Name -->
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label fw-bold">
+                        <i class="bi bi-film me-1 text-primary"></i> Cinema Name
+                    </label>
+                    <input asp-for="Name" class="form-control" placeholder="Enter cinema name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <!-- Status -->
+                <div class="mb-3">
+                    <label asp-for="Status" class="form-label fw-bold">
+                        <i class="bi bi-toggle-on me-1 text-primary"></i> Status
+                    </label>
+                    <select asp-for="Status" class="form-select">
+                        <option value="true" selected="@Model.Status">Active</option>
+                        <option value="false" selected="!@Model.Status">Inactive</option>
+                    </select>
+                </div>
+
+                <!-- Current Image -->
+                <div class="mb-3 text-center">
+                    <label class="form-label fw-bold">
+                        <i class="bi bi-image me-1 text-primary"></i> Current Image
+                    </label>
+                    <div class="mt-2">
+                        @if (!string.IsNullOrEmpty(Model.Img))
+                        {
+                            <img src="~/assets/img/cinemaImg/@Model.Img"
+                                 alt="Cinema Image"
+                                 class="img-fluid rounded-3 shadow-sm border"
+                                 style="max-height: 250px;" />
+                        }
+                        else
+                        {
+                            <p class="text-muted fst-italic">No image available</p>
+                        }
+                    </div>
+                </div>
+
+                <!-- Upload New Image -->
+                <div class="mb-3">
+                    <label for="Img" class="form-label fw-bold">
+                        <i class="bi bi-cloud-arrow-up me-1 text-primary"></i> Upload New Image
+                    </label>
+                    <input type="file" name="Img" id="Img" class="form-control" accept="image/*" />
+                </div>
+
+                <!-- Buttons -->
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary px-4 py-2 rounded-pill shadow-sm">
+                        <i class="bi bi-save me-1"></i> Save Changes
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary px-4 py-2 rounded-pill shadow-sm ms-2">
+                        <i class="bi bi-arrow-left-circle me-1"></i> Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

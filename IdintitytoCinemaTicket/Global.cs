@@ -1,0 +1,15 @@
+﻿global using IdintitytoCinemaTicket.Data;
+global using IdintitytoCinemaTicket.Models;
+global using IdintitytoCinemaTicket.Reposatory.IRepositories;
+global using Microsoft.EntityFrameworkCore;
+global using System.Diagnostics;
+global using System.Linq.Expressions;
+global using System.Threading.Tasks;
+global using IdintitytoCinemaTicket.ViewModel;
+global using IdintitytoCinemaTicket.Serviece.IServiece;
+global using IdintitytoCinemaTicket.UnitOfWork;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.Identity;
+global using NuGet.Packaging.Signing;
+global using Microsoft.AspNetCore.Identity.UI.Services;
+global using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;

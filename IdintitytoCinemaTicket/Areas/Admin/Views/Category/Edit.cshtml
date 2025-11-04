@@ -1,0 +1,41 @@
+﻿@model IdintitytoCinemaTicket.Models.Category
+
+@{
+    ViewData["Title"] = "Edit Category";
+}
+
+<div class="container my-5">
+    <div class="card shadow-lg border-0 rounded-4 mx-auto" style="max-width: 700px;">
+        <div class="card-header bg-warning text-dark text-center rounded-top-4 py-3">
+            <h2 class="mb-0">
+                <i class="bi bi-pencil-square me-2"></i> Edit Category
+            </h2>
+        </div>
+
+        <div class="card-body bg-light p-4">
+            <form asp-action="Edit" method="post" novalidate>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label fw-semibold">
+                        <i class="bi bi-tag me-1 text-warning"></i> Category Name
+                    </label>
+                    <input asp-for="Name" class="form-control shadow-sm" placeholder="Enter category name" />
+                    <span asp-validation-for="Name" class="text-danger small"></span>
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-warning text-dark px-4 py-2 rounded-pill shadow-sm">
+                        <i class="bi bi-save2 me-1"></i> Save Changes
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary px-4 py-2 rounded-pill ms-2 shadow-sm">
+                        <i class="bi bi-arrow-left-circle me-1"></i> Back
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
