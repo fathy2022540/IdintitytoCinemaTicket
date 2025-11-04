@@ -55,7 +55,6 @@ namespace IdintitytoCinemaTicket.Serviece
 
             var link = $"{scheme}://localhost:7180/Identity/Account/ConfirmEmail?token={token}&id={user.Id}";
 
-
             await _EmailSender.SendEmailAsync(
             registerVm.Email,
             "Movie Teckets - confirm Email",
